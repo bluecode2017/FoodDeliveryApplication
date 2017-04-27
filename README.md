@@ -52,8 +52,11 @@ response 是：
       price
       orderTime
       orderStatus（默认 incomplete）
+      deliveryTime （创建时默认是0，当payment完成后修改）
 
 Get /XXX.com/restaurant/{restaurantname}/user/{userid}/Order/{orderid}   获取一个id为XXX的user的一个id为XXX的订单
+
+Put /XXX.com/restaurant/{restaurantname}/user/{userid}/Order/{orderid}   修改一个id为XXX的user的一个id为XXX的订单，主要用于payment完成后，修改orderStatus和deliveryTime
 
 不提供订单删除功能，所以没有删除的API
 ```
@@ -71,6 +74,9 @@ request内容：
 response内容：
       paymentID（自动创建）
       timestamp
+      restaurantName
+      userId
+      orderId
       orderstatus（自动更新为completed）
       estimatedDeliveyTime （系统随机创建）
 
