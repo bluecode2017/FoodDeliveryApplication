@@ -7,7 +7,7 @@ Resource 包含 restaurants, menu, foods, users,orders.
 1个user有n个order ， 1个user 有1个 payment info
 
 
-### resource 是 restaurant
+### resource 是 restaurants
 ```
 Get /XXX.com/restaurants  
 获取restaurant列表
@@ -47,7 +47,7 @@ Put /XXX.com/restaurants/{restaurantname}/menu/foods/{id}
 更新一个restaurant的menu里的foodItem
 ```
 
-### resource是user
+### resource是users
 ```
 Post /XXX.com/restaurants/{restaurantname}/users/{userid}   
 创建一个id为XXX的user的一个订单
@@ -77,7 +77,7 @@ Put /XXX.com/restaurants/{restaurantname}/users/{userid}/orders/{orderid}  
 ```
 
 
-### resource是Order
+### resource是Orders
 ```
 Post   /XXX.com/restaurants/{restaurantname}/users/{userid}/Oders/{orderID}/pay     
 创建一个user的一个订单的付款信息
