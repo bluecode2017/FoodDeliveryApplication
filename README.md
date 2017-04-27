@@ -23,8 +23,8 @@ Delete /XXX.com/restaurant/deleteByRestaurantname/{restaurantname} 删除一个r
  
 Get   XXX.com/restaurant/{restaurantname}/menu  获取指定restaurant的menu
 response 是：
-foodItem
-price
+      foodItem
+      price
 
 Post  /XXX.com/restaurants/{restaurantname}/menu  新建指定restaurant的menu
 
@@ -40,18 +40,18 @@ Put /XXX.com/restaurants/{restaurantname}/menu/foods/{id}  更新一个restauran
 Post /XXX.com/restaurant/{restaurantname}/user/{userid}   创建一个id为XXX的user的一个订单
 
 request内容是：
-menuItem
-quantity
-note
-deliveryAddress
+      menuItem
+      quantity
+      note
+      deliveryAddress
 
 response 是：
-OrderId（自动创建）
-foodItem
-quantity
-price
-orderTime
-orderStatus（默认 incomplete）
+      OrderId（自动创建）
+      foodItem
+      quantity
+      price
+      orderTime
+      orderStatus（默认 incomplete）
 
 Get /XXX.com/restaurant/{restaurantname}/user/{userid}/Order/{orderid}   获取一个id为XXX的user的一个id为XXX的订单
 
@@ -64,15 +64,15 @@ Get /XXX.com/restaurant/{restaurantname}/user/{userid}/Order/{orderid}   获取
 Post   /XXX.com/restaurant/{restaurantname}/user/{userid}/Oder/{orderID}/payOrder     创建一个user的一个订单的付款信息
 
 request内容：
-creditCardNumber
-ExpirationDate
-SecurityCode
+      creditCardNumber
+      ExpirationDate
+      SecurityCode
 
 response内容：
-paymentID（自动创建）
-timestamp
-orderstatus（自动更新为completed）
-estimatedDeliveyTime （系统随机创建）
+      paymentID（自动创建）
+      timestamp
+      orderstatus（自动更新为completed）
+      estimatedDeliveyTime （系统随机创建）
 
 不提供payment修改和删除功能，所以没有对应的API
 ```
