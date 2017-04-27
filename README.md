@@ -2,7 +2,7 @@
 
 
 ## 设计Rest API
-resource 包含 restaurant, menu, food, user,order. 这里假设1个restaurant只有1份menu（不分中午menu和晚餐menu）,1个user有n个order ， 1个user 有1个 payment info
+Resource 包含 restaurants, menu, foods, users,orders. 这里假设1个restaurant只有1份menu（不分中午menu和晚餐menu）,1个user有n个order ， 1个user 有1个 payment info
 
 
 ### resource 是 restaurant
@@ -15,20 +15,20 @@ Post  /XXX.com/restaurants  新建一个restaurant
 
 Put /XXX.com/restaurants/{restaurantname}  更新一个restaurant
 
-Delete /XXX.com/restaurant/deleteByRestaurantname/{restaurantname} 删除一个restaurant
+Delete /XXX.com/restaurants/deleteByRestaurantname/{restaurantname} 删除一个restaurant
 ```
 
 ### resource 是menu
 ```
  
-Get   XXX.com/restaurant/{restaurantname}/menu  获取指定restaurant的menu
+Get   XXX.com/restaurants/{restaurantname}/menu  获取指定restaurant的menu
 response 是：
       foodItem
       price
 
 Post  /XXX.com/restaurants/{restaurantname}/menu  新建指定restaurant的menu
 
-Delete /XXX.com/restaurant/{restaurantname}/deleteMenu/ 删除指定restaurant的menu
+Delete /XXX.com/restaurants/{restaurantname}/deleteMenu/ 删除指定restaurant的menu
 
 Get /XXX.com/restaurants/{restaurantname}/menu/foods  获取一个restaurant的menu里的foodItem
 
@@ -37,7 +37,7 @@ Put /XXX.com/restaurants/{restaurantname}/menu/foods/{id}  更新一个restauran
 
 ### resource是user
 ```
-Post /XXX.com/restaurant/{restaurantname}/user/{userid}   创建一个id为XXX的user的一个订单
+Post /XXX.com/restaurants/{restaurantname}/users/{userid}   创建一个id为XXX的user的一个订单
 
 request内容是：
       menuItem
@@ -54,9 +54,9 @@ response 是：
       orderStatus（默认 incomplete）
       deliveryTime （创建时默认是0，当payment完成后修改）
 
-Get /XXX.com/restaurant/{restaurantname}/user/{userid}/Order/{orderid}   获取一个id为XXX的user的一个id为XXX的订单
+Get /XXX.com/restaurants/{restaurantname}/users/{userid}/orders/{orderid}   获取一个id为XXX的user的一个id为XXX的订单
 
-Put /XXX.com/restaurant/{restaurantname}/user/{userid}/Order/{orderid}   修改一个id为XXX的user的一个id为XXX的订单，主要用于payment完成后，修改orderStatus和deliveryTime
+Put /XXX.com/restaurants/{restaurantname}/users/{userid}/orders/{orderid}   修改一个id为XXX的user的一个id为XXX的订单，主要用于payment完成后，修改orderStatus和deliveryTime
 
 不提供订单删除功能，所以没有删除的API
 ```
@@ -64,7 +64,7 @@ Put /XXX.com/restaurant/{restaurantname}/user/{userid}/Order/{orderid}   修改
 
 ### resource是Order
 ```
-Post   /XXX.com/restaurant/{restaurantname}/user/{userid}/Oder/{orderID}/payOrder     创建一个user的一个订单的付款信息
+Post   /XXX.com/restaurants/{restaurantname}/users/{userid}/Oders/{orderID}/pay     创建一个user的一个订单的付款信息
 
 request内容：
       creditCardNumber
